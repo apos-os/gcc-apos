@@ -616,6 +616,12 @@ x86_cpus="generic intel"
 
 # Common parts for widely ported systems.
 case ${target} in
+*-*-apos*)
+  extra_parts="crtbegin.o crtend.o"
+  gas=yes
+  gnu_ld=yes
+  default_use_cxa_atexit=yes
+  ;;
 *-*-darwin*)
   tmake_file="t-darwin ${cpu_type}/t-darwin"
   tm_file="${tm_file} darwin.h"
@@ -875,6 +881,16 @@ case ${target} in
 esac
 
 case ${target} in
+i[3-7]86-*-apos*)
+	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h i386/i386elf.h apos.h"
+	tmake_file="i386/t-i386elf t-svr4"
+	use_fixproto=yes
+        ;;
+x86_64-*-apos*)
+	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h i386/i386elf.h i386/x86-64.h apos.h"
+	tmake_file="i386/t-i386elf t-svr4"
+	use_fixproto=yes
+        ;;
 aarch64*-*-elf)
 	tm_file="${tm_file} dbxelf.h elfos.h newlib-stdint.h"
 	tm_file="${tm_file} aarch64/aarch64-elf.h aarch64/aarch64-elf-raw.h"
