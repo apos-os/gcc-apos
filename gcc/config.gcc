@@ -1201,6 +1201,7 @@ i[3-7]86-*-apos*)
         ;;
 x86_64-*-apos*)
 	tm_file="${tm_file} i386/unix.h i386/att.h elfos.h i386/i386elf.h i386/x86-64.h newlib-stdint.h apos.h"
+	use_gcc_stdint=provide
 	#tmake_file="i386/t-i386elf t-svr4"
 	#use_fixproto=yes
         ;;
