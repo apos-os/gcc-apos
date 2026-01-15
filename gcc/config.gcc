@@ -2563,6 +2563,9 @@ riscv*-*-elf* | riscv*-*-rtems* | riscv*-*-apos)
 	  tm_file="${tm_file} riscv/rtems.h rtems.h"
 	  tmake_file="${tmake_file} riscv/t-rtems"
 	  ;;
+        *-*-apos)
+          tm_file="${tm_file} apos.h riscv/apos.h"
+          ;;
 	*)
 	  if test "x${with_multilib_generator}" = xdefault; then
 		  case "x${enable_multilib}" in
